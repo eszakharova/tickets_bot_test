@@ -1,7 +1,6 @@
-<pattern name="BuyTickets" value="* купить билет[ы]"/>
-<pattern name="Hello" value="(привет *|здравствуй[те] *|здорово *)"/>
-
+<!--<pattern name="BuyTickets" value="* купить билет[ы]"/>-->
 <context>
+<pattern name="Hello" value="(привет *|здравствуй[те] *|здорово *)"/>
 <input pattern="$Hello">
     <output value="Вас приветствует бот-помощник кинотеатра Н! Чем я могу вам помочь?"/>
 </input>
