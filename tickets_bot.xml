@@ -10,6 +10,7 @@
         <var name="Film" value="Empty" if="empty($Textt)" scope="user"/>
 
         <output value="$Film - отличный выбор!"/>
+    </input>
 
     <!--&lt;!&ndash;сразу спросить время, если есть название фильма&ndash;&gt;-->
     <!--<context id="ask_time" if="full($Film)" />-->
