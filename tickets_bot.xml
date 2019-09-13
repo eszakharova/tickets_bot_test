@@ -14,7 +14,7 @@
              <output value="Пожалуйста, введите название фильма"/>
                 <input pattern="* $Text *">
                 <var name="Film" value="$Text" scope="user"/>
-                <output value="Отличный выбор!"/>
+                <output value="$Film - отличный выбор!"/>
                 </input>
         </context>
 
@@ -23,7 +23,7 @@
             <input pattern="* $Date $Time *">
                 <var name="Date" value="$Date" scope="user"/>
                 <var name="Time" value="$Time" scope="user"/>
-                <output value="Проверяем наличие билетов на $Film $Date в $Time"/>
+                <output value="Проверяем наличие билетов на $Date в $Time"/>
                 </input>
         </context>
 
