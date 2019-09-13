@@ -23,10 +23,10 @@
         <!--спросить дату и время сеанса-->
         <context id="ask_time">
             <output value="$Film - отличный выбор. А теперь, пожалуйста, выберите дату и время сеанса"/>
-            <input pattern="* $Date $Time *">
-                <var name="Date" value="$Date" scope="user"/>
-                <var name="Time" value="$Time" scope="user"/>
-                <output value="Проверяем наличие билетов на $Film $Date в $Time"/>
+            <input pattern="$Date [в] $Time">
+                <var name="DateFilm" value="$Date" scope="user"/>
+                <var name="TimeFilm" value="$Time" scope="user"/>
+                <output value="Проверяем наличие билетов на $Film $DateFilm в $TimeFilm"/>
                 </input>
         </context>
 
