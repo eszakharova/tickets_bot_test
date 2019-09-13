@@ -56,7 +56,8 @@
 
     <!--вернуть билет-->
     <context id="return_tickets">
-        <input pattern="* {(вернуть|сдать) билет*} *">
+        <!--<input pattern="* {(вернуть|сдать) билет*} *">-->
+    <input pattern="вернуть билеты">
         <output value="Пожалуйста, введите номер заказа"/>
             <context>
                 <input pattern="$Text">
