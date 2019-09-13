@@ -7,7 +7,7 @@
     <input pattern=" * {(купить|забронировать) билет* } [на [фильм] $Film] *">
 
     <!--сразу спросить время, если есть название фильма-->
-    <context id="ask_time" if="full ($Film)" />
+    <context id="ask_time" if="full($Film)" />
 
         <!--спросить название фильма   -->
          <context if="empty($Film)" modal="true">
@@ -23,7 +23,7 @@
             <input pattern="* $Date $Time *">
                 <var name="Date" value="$Date" scope="user"/>
                 <var name="Time" value="$Time" scope="user"/>
-                <output value="Проверяем наличие билетов на $Date в $Time"/>
+                <output value="Проверяем наличие билетов на $Film $Date в $Time"/>
                 </input>
         </context>
 
