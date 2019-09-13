@@ -7,42 +7,38 @@
     <input pattern=" * {(купить|забронировать) билет* } [на [фильм] $Text] *">
 
         <var name="Film" value="$Text" if="full($Text)" scope="user"/>
-        <var name="Film" value="Empty" if="empty($Text)" scope="user"/>
+        <!--<var name="Film" value="Empty" if="empty($Text)" scope="user"/>-->
 
-        <output value="$Film - отличный выбор!"/>
-    </input>
+    <!--сразу спросить время, если есть название фильма-->
+    <context id="ask_time" if="full($Text)" />
+
+        <!--спросить название фильма   -->
+         <context if="empty($Text)" modal="true">
+             <output value="Пожалуйста, введите название фильма"/>
+                <input pattern="* $Text *">
+                <var name="Film" value="$Text" scope="user"/>
+                <output value="$Film - отличный выбор!"/>
+                </input>
+        </context>
+
+        <!--спросить дату и время сеанса-->
+        <context id="ask_time">
+            <input pattern="* $Date $Time *">
+                <var name="Date" value="$Date" scope="user"/>
+                <var name="Time" value="$Time" scope="user"/>
+                <output value="Проверяем наличие билетов на $Film $Date в $Time"/>
+                </input>
+        </context>
+
+
+        </input>
     </context>
 
-    <!--&lt;!&ndash;сразу спросить время, если есть название фильма&ndash;&gt;-->
-    <!--<context id="ask_time" if="full($Film)" />-->
-
-        <!--&lt;!&ndash;спросить название фильма   &ndash;&gt;-->
-         <!--<context if="empty($Film)" modal="true">-->
-             <!--<output value="Пожалуйста, введите название фильма"/>-->
-                <!--<input pattern="* $Text *">-->
-                <!--<var name="Film" value="$Text" scope="user"/>-->
-                <!--<output value="$Film - отличный выбор!"/>-->
-                <!--</input>-->
-        <!--</context>-->
-
-        <!--&lt;!&ndash;спросить дату и время сеанса&ndash;&gt;-->
-        <!--<context id="ask_time">-->
-            <!--<input pattern="* $Date $Time *">-->
-                <!--<var name="Date" value="$Date" scope="user"/>-->
-                <!--<var name="Time" value="$Time" scope="user"/>-->
-                <!--<output value="Проверяем наличие билетов на $Film $Date в $Time"/>-->
-                <!--</input>-->
-        <!--</context>-->
-
-
-        <!--</input>-->
-    <!--</context>-->
-
-    <!--&lt;!&ndash;вернуть билет&ndash;&gt;-->
-    <!--<context id="return_tickets">-->
-        <!--<input pattern=" * {(вернуть|сдать) билет*} *"/>-->
-        <!--<output value="Пожалуйста, введите номер заказа"/>-->
-    <!--</context>-->
+    <!--вернуть билет-->
+    <context id="return_tickets">
+        <input pattern=" * {(вернуть|сдать) билет*} *"/>
+        <output value="Пожалуйста, введите номер заказа"/>
+    </context>
 
 </input>
 </context>
