@@ -11,7 +11,8 @@
         <item>Мое лето любви</item>
         <item>Зови меня своим именем</item>
             </sample>
-                <input pattern="* $Film *"/>
+                <input pattern="* $Text *"/>
+                <var name="Film" value="$Text" scope="user"/>
                 <output pattern="Проверяем наличие билетов на $Film"/>
         </context>
         </input>
