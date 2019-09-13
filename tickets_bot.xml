@@ -12,7 +12,7 @@
     <context id="ask_time" if="full($Text)" />
 
         <!--спросить название фильма   -->
-         <context if="empty($Text)" modal="true">
+         <context if="empty($Text)">
              <output value="Пожалуйста, введите название фильма"/>
                 <input pattern="$Text">
                 <var name="Film" value="$Text" scope="user"/>
@@ -56,7 +56,7 @@
 
     <!--вернуть билет-->
     <context id="return_tickets">
-        <input pattern=" * {(вернуть|сдать) билет*} *">
+        <input pattern="* {(вернуть|сдать) билет*} *">
         <output value="Пожалуйста, введите номер заказа"/>
             <context>
                 <input pattern="$Text">
