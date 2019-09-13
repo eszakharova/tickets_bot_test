@@ -16,14 +16,13 @@
              <output value="Пожалуйста, введите название фильма"/>
                 <input pattern="$Text">
                 <var name="Film" value="$Text" scope="user"/>
-                <output value="$Film - отличный выбор!"/>
                     <context id="ask_time"/>
                 </input>
         </context>
 
         <!--спросить дату и время сеанса-->
         <context id="ask_time">
-            <output value="Выберите дату и время сеанса"/>
+            <output value="$Film - отличный выбор. А теперь, пожалуйста, выберите дату и время сеанса"/>
             <input pattern="* $Date $Time *">
                 <var name="Date" value="$Date" scope="user"/>
                 <var name="Time" value="$Time" scope="user"/>
