@@ -26,9 +26,29 @@
             <input pattern="$Date [в] $Time">
                 <var name="DateFilm" value="$Date" scope="user"/>
                 <var name="TimeFilm" value="$Time" scope="user"/>
-                <output value="Проверяем наличие билетов на $Film $DateFilm в $TimeFilm"/>
                 </input>
+            <output value="Проверяем наличие билетов на $Film $DateFilm в $TimeFilm"/>
         </context>
+
+        <context id="ask_place">
+            <output value="Сбоводные места:      <br/>
+                           _________экран________<br/>
+                           ряд1: 1 2 3 x x 6 7 8 <br/>
+                           ряд2: 1 x 3 4 5 6 7 8 <br/>
+                           ряд3: 1 2 x x x 6 7 8 <br/>
+                           ряд4: 1 x 3 4 5 6 x x <br/>
+                           ряд5: 1 2 3 4 5 6 7 8 <br/>
+                           ряд6: 1 x x x 5 6 7 8 <br/>
+                           Пожалуйста, введите номера мест в формате ряд.место через запятую"/>
+            <input pattern="$Text">
+                <output value="Места $Text забронированы. Ваш номер заказа 12345678.
+                Переход на страницу оплаты по ссылке kinoteatr.ru/payments/12345678"/>
+            </input>
+        </context>
+
+        <!--<context id="next_action">-->
+            <!---->
+        <!--</context>-->
 
 
         </input>
@@ -36,8 +56,15 @@
 
     <!--вернуть билет-->
     <context id="return_tickets">
-        <input pattern=" * {(вернуть|сдать) билет*} *"/>
+        <input pattern=" * {(вернуть|сдать) билет*} *">
         <output value="Пожалуйста, введите номер заказа"/>
+            <context>
+                <input pattern="$Text">
+                    <output value="Ваш номер заказа: $Text. Перейти на страницус подтверждением отмены заказа
+                                    можно по ссылке kinoteatr.ru/return/$Text"/>
+                </input>
+            </context>
+        </input>
     </context>
 
 </input>
