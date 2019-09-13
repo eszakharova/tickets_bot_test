@@ -26,15 +26,17 @@
             <input pattern="$Date [в] $Time">
                 <var name="DateFilm" value="$Date" scope="user"/>
                 <var name="TimeFilm" value="$Time" scope="user"/>
-                <context id="check_tickets"/>
                 </input>
+            <context id="check_tickets"/>
         </context>
 
-         <context id="check_tickets">
+        <!--проверить наличие билетов-->
+        <context id="check_tickets">
                 <output value="Проверяем наличие билетов на $Film $DateFilm в $TimeFilm"/>
                 <context id="ask_place"/>
-                </context>
+        </context>
 
+        <!--выбрать места-->
         <context id="ask_place">
             <output value="Сбоводные места:      &#xA;
                            _________экран________&#xA;
