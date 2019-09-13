@@ -15,7 +15,7 @@
         <!--спросить название фильма   -->
          <context if="empty($Text)" modal="true">
              <output value="Пожалуйста, введите название фильма"/>
-                <input pattern="* $Text *">
+                <input pattern="$Text">
                 <var name="Film" value="$Text" scope="user"/>
                 <output value="$Film - отличный выбор!"/>
                 </input>
