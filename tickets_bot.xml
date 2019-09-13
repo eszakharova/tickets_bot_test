@@ -15,7 +15,7 @@
          <context if="empty($Text)">
              <output value="Пожалуйста, введите название фильма"/>
                 <input pattern="$Text">
-                <var name="Film" value="$Text" scope="user"/>
+                <var name="Film" value="cap($Text)" scope="user"/>
                     <context id="ask_time"/>
                 </input>
         </context>
@@ -24,15 +24,15 @@
         <context id="ask_time">
             <output value="$Film - отличный выбор. А теперь, пожалуйста, выберите дату и время сеанса"/>
             <input pattern="$Date [в] $Time">
-                <var name="DateFilm" value="$Date" scope="user"/>
-                <var name="TimeFilm" value="$Time" scope="user"/>
+                <var name="DateFilm" value='fmt($Date, "dd MMM yyyy", $req_lang)' scope="user"/>
+                <var name="TimeFilm" value='fmt($Time, "hh:mm", $req_lang)' scope="user"/>
                  <context id="ask_place"/>
                 </input>
         </context>
 
         <!--выбрать места-->
         <context id="ask_place">
-            <output value="Сбоводные места на на $Film $DateFilm в $TimeFilm:      &#xA;
+            <output value="Сбоводные места на фильм $Film $DateFilm в $TimeFilm:&#xA;
                            _________экран________&#xA;
                            ряд1: 1 2 3 x x 6 7 8 &#xA;
                            ряд2: 1 x 3 4 5 6 7 8 &#xA;
@@ -42,8 +42,7 @@
                            ряд6: 1 x x x 5 6 7 8 &#xA;
                            Пожалуйста, введите номера мест в формате ряд.место через запятую"/>
             <input pattern="$Text">
-                <output value="Места $Text забронированы. Ваш номер заказа 12345678.
-                Переход на страницу оплаты по ссылке kinoteatr.ru/payments/12345678"/>
+                <output value="Места $Text забронированы. Ваш номер заказа 12345678. Переход на страницу оплаты по ссылке kinoteatr.ru/payments/12345678"/>
             </input>
         </context>
 
