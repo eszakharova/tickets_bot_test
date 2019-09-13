@@ -43,6 +43,7 @@
                            Пожалуйста, введите номера мест в формате ряд.место через запятую'/>
             <input pattern="$Text">
                 <output value="Места $Text забронированы. Ваш номер заказа 12345678. Переход на страницу оплаты по ссылке kinoteatr.ru/payments/12345678"/>
+                <context id="what_else"/>
             </input>
         </context>
 
@@ -56,8 +57,7 @@
 
     <!--вернуть билет-->
     <context id="return_tickets">
-        <!--<input pattern="* {(вернуть|сдать) билет*} *">-->
-    <input pattern="вернуть билеты">
+        <input pattern="* {(вернуть|сдать) билет*} *">
         <output value="Пожалуйста, введите номер заказа"/>
             <context>
                 <input pattern="$Text">
@@ -65,7 +65,21 @@
                                     можно по ссылке kinoteatr.ru/return/$Text"/>
                 </input>
             </context>
+            <context id="'what_else"/>
         </input>
+    </context>
+
+    <context id="what_else">
+        <output value="Могу ли я чем-то еще вам помочь?"/>
+        <input pattern="$Text">
+            <context if='has($Text, "да")'/>
+            <context id="bye" if='has($Text, "нет")'/>
+        </input>
+
+    </context>
+
+    <context id="bye">
+        <output value="До свидания. Хорошего дня!"/>
     </context>
 
 </input>
