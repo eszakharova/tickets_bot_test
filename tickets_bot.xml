@@ -5,7 +5,7 @@
     <!--купить билет-->
     <context id="buy_tickets">
 
-    <input pattern=" * {(купить|забронировать) билет* } [на [фильм] $Text] *">
+    <input pattern=" * {(купить|забронировать) билет* } [на [фильм] $Text][.!]">
         <var name="Film" value="$Text" if="full($Text)" scope="user"/>
 
     <!--сразу спросить время, если есть название фильма-->
