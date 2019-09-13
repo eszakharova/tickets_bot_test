@@ -11,6 +11,7 @@
 
         <output value="$Film - отличный выбор!"/>
     </input>
+    </context>
 
     <!--&lt;!&ndash;сразу спросить время, если есть название фильма&ndash;&gt;-->
     <!--<context id="ask_time" if="full($Film)" />-->
