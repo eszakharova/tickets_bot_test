@@ -1,9 +1,6 @@
 <context>
 <input pattern="(привет *|здравствуй* *|здорово *|добр* (день|вечер|утро))">
-    <output value="Вас приветствует бот-помощник кинотеатра Кинотеатр!"/>
-
-    <context id="main">
-        <output value="Чем я могу вам помочь?"/>
+    <output value="Вас приветствует бот-помощник кинотеатра Кинотеатр! Чем я могу вам помочь?"/>
 
     <!--купить билет-->
     <context id="buy_tickets">
@@ -74,7 +71,7 @@
 
     <context id="what_else">
         <input pattern="$Text">
-            <context id ="main" if='has($Text, "да")'/>
+            <context if='has($Text, "да")'/>
             <context id="bye" if='has($Text, "нет")'/>
         </input>
 
@@ -82,7 +79,6 @@
 
     <context id="bye">
         <output value="До свидания. Хорошего дня!"/>
-    </context>
     </context>
 
 </input>
