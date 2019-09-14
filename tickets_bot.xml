@@ -4,7 +4,7 @@
 <input pattern="*">
     <output value="Чем я могу вам помочь?"/>
 
-    <context id="main">
+    <!--<context id="main">-->
     <!--купить билет-->
     <input pattern=" * {(купить|забронировать) билет* } [на [фильм] $Text][.!]">
         <var name="Film" value="cap($Text)" if="full($Text)" scope="user"/>
@@ -75,6 +75,6 @@
         <output value="До свидания. Хорошего дня!"/>
     </context>
 
-</context>
+<!--</context>-->
 </input>
 </context>
