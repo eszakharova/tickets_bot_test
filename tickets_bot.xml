@@ -62,7 +62,6 @@
                 </input>
             </context>
         </input>
-    </context>
 
     <context id="what_else">
         <input pattern="$Text">
@@ -76,5 +75,6 @@
         <output value="До свидания. Хорошего дня!"/>
     </context>
 
+</context>
 </input>
 </context>
