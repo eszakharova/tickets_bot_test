@@ -70,7 +70,7 @@
             <context>
                 <input pattern="$Text">
                     <output value="Ваш номер заказа: $Text. Перейти на страницу с подтверждением отмены заказа можно по ссылке kinoteatr.ru/return/$Text. Могу ли я чем-то еще вам помочь?"/>
-                    <context id="'what_else"/>
+                    <context id="what_else"/>
                 </input>
             </context>
         </input>
