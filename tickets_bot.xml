@@ -75,6 +75,12 @@
             </context>
         </input>
 
+    <!--непонятный инпут    -->
+        <input pattern="*">
+            <output value="Извините, я вас не понимаю."/>
+            <context id="what_else"/>
+        </input>
+
 
 
 </context>
