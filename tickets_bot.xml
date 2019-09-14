@@ -2,8 +2,9 @@
     <output value="Вас приветствует бот-помощник кинотеатра Кинотеатр! Введите любой текст для начала/продолжения работы."/>
 
 <input pattern="*">
-    <context id="main">
     <output value="Чем я могу вам помочь?"/>
+
+    <context id="main">
     <!--купить билет-->
     <input pattern=" * {(купить|забронировать) билет* } [на [фильм] $Text][.!]">
         <var name="Film" value="cap($Text)" if="full($Text)" scope="user"/>
@@ -77,7 +78,7 @@
     <!--непонятный инпут    -->
         <input pattern="*">
             <output value="Извините, я вас не понимаю."/>
-          <context id="main"/>
+          <context/>
         </input>
 
 
